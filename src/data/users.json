@@ -1,0 +1,13 @@
+[
+   { "id": 1, "first_name": "Salomon", "last_name": "Regardsoe", "email": "sregardsoe0@salon.com", "date": "1/2/2023" },
+   { "id": 2, "first_name": "Odetta", "last_name": "Addington", "email": "oaddington1@tumblr.com", "date": "3/2/2022" },
+   { "id": 3, "first_name": "Ximenes", "last_name": "Peggrem", "email": "xpeggrem2@wisc.edu", "date": "9/24/2022" },
+   {
+      "id": 4,
+      "first_name": "Thedric",
+      "last_name": "Grimmer",
+      "email": "tgrimmer3@wikipedia.org",
+      "date": "2/10/2022"
+   },
+   { "id": 5, "first_name": "Penrod", "last_name": "Snazel", "email": "psnazel4@blog.com", "date": "4/26/2022" }
+]

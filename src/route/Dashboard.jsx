@@ -1,75 +1,70 @@
 import React, { useState } from "react";
-import {
-  MDBContainer,
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarToggler,
-  MDBIcon,
-  MDBNavbarNav,
-  MDBNavbarItem,
-  MDBNavbarLink,
-  MDBBtn,
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-  MDBDropdownItem,
-  MDBCollapse,
-} from "mdb-react-ui-kit";
+import Topbar from "../components/Topbar";
+
+import UserData from "../data/users.json";
+
+import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
 
 export default function Dashboard() {
-  const [showBasic, setShowBasic] = useState(false);
+   const groups = [
+      {
+         id: 1,
+         name: "Tennis",
+      },
+      {
+         id: 2,
+         name: "Hockey",
+      },
+   ];
 
-  return (
-    <MDBNavbar expand="lg" light bgColor="light">
-      <MDBContainer fluid>
-        <MDBNavbarBrand href="#">Brand</MDBNavbarBrand>
+   const GroupList = ({ list }) => {
+      const listItems = list.map((listItem) => <li key={listItem.id}>{listItem.name}</li>);
+      return <ul>{listItems}</ul>;
+   };
 
-        <MDBNavbarToggler
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          onClick={() => setShowBasic(!showBasic)}
-        >
-          <MDBIcon icon="bars" fas />
-        </MDBNavbarToggler>
+   return (
+      <div className="app">
+         <Topbar />
+         <div className="content">
+            <div className="sidebar">
+               <h1>sidebar</h1>
+               <GroupList list={groups} />
+            </div>
+            <div className="main">
+               <h1>Dashboard</h1>
 
-        <MDBCollapse navbar show={showBasic}>
-          <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
-            <MDBNavbarItem>
-              <MDBNavbarLink active aria-current="page" href="#">
-                Home
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink href="#">Link</MDBNavbarLink>
-            </MDBNavbarItem>
-
-            <MDBNavbarItem>
-              <MDBDropdown>
-                <MDBDropdownToggle tag="a" className="nav-link" role="button">
-                  Dropdown
-                </MDBDropdownToggle>
-                <MDBDropdownMenu>
-                  <MDBDropdownItem link>Action</MDBDropdownItem>
-                  <MDBDropdownItem link>Another action</MDBDropdownItem>
-                  <MDBDropdownItem link>Something else here</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
-            </MDBNavbarItem>
-
-            <MDBNavbarItem>
-              <MDBNavbarLink disabled href="#" tabIndex={-1} aria-disabled="true">
-                Disabled
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-          </MDBNavbarNav>
-
-          <form className="d-flex input-group w-auto">
-            <input type="search" className="form-control" placeholder="Type query" aria-label="Search" />
-            <MDBBtn color="primary">Search</MDBBtn>
-          </form>
-        </MDBCollapse>
-      </MDBContainer>
-    </MDBNavbar>
-  );
+               <MDBTable>
+                  <MDBTableHead dark>
+                     <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                     </tr>
+                  </MDBTableHead>
+                  <MDBTableBody>
+                     <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                     </tr>
+                     <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                     </tr>
+                     <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                     </tr>
+                  </MDBTableBody>
+               </MDBTable>
+            </div>
+         </div>
+      </div>
+   );
 }

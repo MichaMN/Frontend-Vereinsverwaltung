@@ -1,1 +1,1 @@
-# Frontend Vereinsverwaltung
+# Frontend Verein
